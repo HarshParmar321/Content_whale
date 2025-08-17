@@ -1,0 +1,22 @@
+@import './tailwind.css';
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: 'Lato', 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+@keyframes wave {
+  0%, 100% { transform: scaleY(0.4); }
+  50% { transform: scaleY(1); }
+}
+.animate-wave {
+  animation: wave 1.6s infinite ease-in-out;
+  transform-origin: bottom;
+}

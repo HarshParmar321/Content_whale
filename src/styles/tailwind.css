@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors */
+    --primary-background: #42175b;
+    --primary-foreground: #ffffff;
+    --primary-light: #8b30c1;
+    --primary-dark: #41165a;
+
+    /* Secondary Colors */
+    --secondary-background: #ffffff;
+    --secondary-foreground: #000000;
+    --secondary-light: #f8f9ff;
+    --secondary-dark: #1e1e1e;
+
+    /* Accent Colors */
+    --accent-blue: #0097ea;
+    --accent-orange: #fbba18;
+    --accent-gradient-start: #e34e49;
+    --accent-gradient-end: #fbbb17;
+
+    /* Text Colors */
+    --text-primary: #000000;
+    --text-secondary: #2a2a2a;
+    --text-muted: #626262;
+    --text-light: #848484;
+    --text-brand: #42175b;
+    --text-blue: #085681;
+
+    /* Background Colors */
+    --bg-main: #ffffff;
+    --bg-overlay: #42175b33;
+    --bg-light: #d9d9d9;
+    --bg-neutral: #dfdfdf;
+
+    /* Button Colors */
+    --button-primary-bg: #c9ecff;
+    --button-primary-text: #008cdb;
+    --button-secondary-bg: #fbba18;
+
+    /* Border Colors */
+    --border-primary: #000000;
+    --border-light: #bcbcbc;
+  }
+}
+
+@layer utilities {
+  /* Primary */
+  .bg-primary {
+    background-color: var(--primary-background);
+  }
+  .text-primary-foreground {
+    color: var(--primary-foreground);
+  }
+  .bg-primary-light {
+    background-color: var(--primary-light);
+  }
+
+  /* Secondary */
+  .bg-secondary {
+    background-color: var(--secondary-background);
+  }
+  .text-secondary-foreground {
+    color: var(--secondary-foreground);
+  }
+
+  /* Accent */
+  .bg-accent-blue {
+    background-color: var(--accent-blue);
+  }
+  .bg-accent-orange {
+    background-color: var(--accent-orange);
+  }
+
+  /* Text */
+  .text-primary-main {
+    color: var(--text-primary);
+  }
+  .text-secondary-main {
+    color: var(--text-secondary);
+  }
+  .text-muted {
+    color: var(--text-muted);
+  }
+  .text-brand {
+    color: var(--text-brand);
+  }
+  .text-blue-main {
+    color: var(--text-blue);
+  }
+
+  /* Backgrounds */
+  .bg-main {
+    background-color: var(--bg-main);
+  }
+  .bg-overlay {
+    background-color: var(--bg-overlay);
+  }
+
+  /* Buttons */
+  .bg-button-primary {
+    background-color: var(--button-primary-bg);
+  }
+  .text-button-primary {
+    color: var(--button-primary-text);
+  }
+  .bg-button-secondary {
+    background-color: var(--button-secondary-bg);
+  }
+
+  /* Transitions */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .transition-bounce {
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+  
+  .scale-in {
+    animation: scaleIn 0.3s ease-out;
+  }
+
+  /* Scrollbar utilities */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
