@@ -73,6 +73,7 @@ export async function GET() {
     gradient: "linear-gradient(133deg, #FFFFFF 0%, #F6E7FF 100%)",
     titleColor: "#42175b"
   },
+  
   {
     id: 2,
     title: "Case studies designed to celebrate success",

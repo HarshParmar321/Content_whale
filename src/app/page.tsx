@@ -6,6 +6,10 @@ import Button from '@/components/ui/Button';
 import Dropdown from '@/components/ui/Dropdown';
 import Slider from '@/components/ui/Slider';
 import { motion } from 'framer-motion';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 
 interface TestimonialData {
   id: number;
@@ -1683,39 +1687,43 @@ const ContentWhalePage: React.FC = () => {
     </div>
 
     {/* Mobile Slider */}
-    <div className="block md:hidden w-full">
-      <div className="flex overflow-x-auto snap-x snap-mandatory gap-[16px] pb-4">
-        {/* Card 1 */}
-        <div className="snap-center shrink-0 w-[85%] border rounded-[24px] p-[24px] flex flex-col gap-[12px] bg-gradient-to-r from-[#fefefe] to-[#f5f5f5]">
-          <h3 className="text-[20px] font-serif font-semibold leading-[26px] text-[#41175b]">
-            Blogs that rank in Google
+    {/* Mobile Carousel */}
+<div className="md:hidden w-full">
+  <Swiper
+    slidesPerView={1}
+    spaceBetween={16}
+    pagination={{ clickable: true }}
+  >
+    {featuredPosts.map((resource) => (
+      <SwiperSlide key={resource.id}>
+        <div
+          className="border rounded-[24px] p-[32px] flex flex-col gap-[16px]"
+          style={{
+            background: resource.gradient,   // ✅ gradient same as desktop
+            borderColor: resource.titleColor,
+          }}
+        >
+          <Image
+            src={resource.image}
+            alt={resource.title}
+            width={56}
+            height={56}
+          />
+          <h3
+            className="text-[20px] sm:text-[22px] md:text-[24px] font-serif font-semibold leading-[26px] sm:leading-[28px] md:leading-[32px] w-[86%]"
+            style={{ color: resource.titleColor }}
+          >
+            {resource.title}
           </h3>
-          <p className="text-[15px] font-lato font-normal leading-[20px] text-[#2a2a2a]">
-            Lorem ipsum dolor sit amet consectetur. Bibendum tellus ultricies lacinia pretium
+          <p className="text-[16px] sm:text-[17px] md:text-[18px] font-lato font-normal leading-[21px] text-[#2a2a2a]">
+            {resource.description}
           </p>
         </div>
+      </SwiperSlide>
+    ))}
+  </Swiper>
+</div>
 
-        {/* Card 2 */}
-        <div className="snap-center shrink-0 w-[85%] border rounded-[24px] p-[24px] flex flex-col gap-[12px] bg-gradient-to-r from-[#fefefe] to-[#f5f5f5]">
-          <h3 className="text-[20px] font-serif font-semibold leading-[26px] text-[#e34e49]">
-            Case studies for Everyone
-          </h3>
-          <p className="text-[15px] font-lato font-normal leading-[20px] text-[#2a2a2a]">
-            Lorem ipsum dolor sit amet consectetur. Bibendum tellus ultricies lacinia pretium
-          </p>
-        </div>
-
-        {/* Card 3 */}
-        <div className="snap-center shrink-0 w-[85%] border rounded-[24px] p-[24px] flex flex-col gap-[12px] bg-gradient-to-r from-[#fefefe] to-[#f5f5f5]">
-          <h3 className="text-[20px] font-serif font-semibold leading-[26px] text-[#fbbb17]">
-            Samples which worked
-          </h3>
-          <p className="text-[15px] font-lato font-normal leading-[20px] text-[#2a2a2a]">
-            Lorem ipsum dolor sit amet consectetur. Bibendum tellus ultricies lacinia pretium
-          </p>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
